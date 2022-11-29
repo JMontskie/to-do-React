@@ -1,7 +1,7 @@
 {
   "name": "todo-tracker",
   "version": "0.1.0",
-  "homepage": "https://jmontskie.github.io/to-do-React",
+  "homepage": "https://jmontskie.github.io/to-do-React/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
