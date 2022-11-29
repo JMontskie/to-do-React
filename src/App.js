@@ -7,6 +7,8 @@ import AddTask from './components/AddTask';
 
 const App = () => {
 
+const [showAddTask, setShowAddTask] = useState(false)
+
 const [tasks, setTasks  ] = useState([
   {
       id:1,
@@ -28,6 +30,15 @@ const [tasks, setTasks  ] = useState([
   }
 ]);
 
+// ADD TASK
+const addTask = (task) => {
+  const id = Math.floor(Math.random()* 10000 )+ 1;
+  console.log(id)
+  const newTask = {id, ...task}
+  setTasks([...tasks, newTask])
+}
+
+
 //DELETE A TASK 
   const deleteTask = (id) =>{
     /*  alert('delete task event')
@@ -46,8 +57,8 @@ const toggleActive = (id) => {
 
   return (
     <div className='container'> 
-      <Header />
-      <AddTask />
+      <Header onAdd={()=>setShowAddTask(!showAddTask)} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleActive}/> : 'No tasks to accomplish'}
       {/* <h1 style={{textAlign:'center'}}>HELLO WORLD! This is my first REACT APP</h1> */}
     </div>
